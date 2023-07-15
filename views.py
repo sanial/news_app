@@ -1,7 +1,12 @@
 from django.shortcuts import render
 import requests
 import json
-API_KEY = "de286e1b6cad442eb0f8c9ac940a48c5"
+
+import os
+from dotenv import dotenv_values
+
+config = {**dotenv_values("sample.env"), **dotenv_values(".env"), **os.environ}
+API_KEY = ["API_KEY"]
 
 
 def index(request):
