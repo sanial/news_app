@@ -1,7 +1,8 @@
 from django.shortcuts import render
 import requests
 import json
-API_KEY = "news_app_api"
+API_KEY = "de286e1b6cad442eb0f8c9ac940a48c5"
+
 
 def index(request):
 
