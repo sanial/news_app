@@ -64,7 +64,7 @@ jobs:
       - name: Make API Request
         run: |
           sleep 5  # Wait for the Django server to start
-          python make_api_request.py ${{ github.event.inputs.search_query }} ${{ github.event.inputs.endpoint }} ${{ github.event.inputs.language }} ${{ github.event.inputs.sortBy }} ${{ github.event.inputs.country }} ${{ github.event.inputs.category }}
+          python make_git_request.py ${{ github.event.inputs.search_query }} ${{ github.event.inputs.endpoint }} ${{ github.event.inputs.language }} ${{ github.event.inputs.sortBy }} ${{ github.event.inputs.country }} ${{ github.event.inputs.category }}
 
 # name: run views.py
 # on:
