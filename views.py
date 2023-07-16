@@ -4,10 +4,11 @@ import requests
 import json
 
 import os
-from dotenv import dotenv_values
+# from dotenv import dotenv_values
 
-config = {**dotenv_values("sample.env"), **dotenv_values(".env"), **os.environ}
-API_KEY = ["API_KEY"]
+# config = {**dotenv_values("sample.env"), **dotenv_values(".env"), **os.environ}
+# API_KEY = ["API_KEY"]
+API_KEY = os.environ['API_KEY']
 
 
 def index(request):
