@@ -58,7 +58,7 @@ jobs:
           COUNTRY="us"
           CATEGORY="sports"
           
-          python make_api_request.py "$SEARCH_QUERY" "$ENDPOINT" "$LANGUAGE" "$SORT_BY" "$COUNTRY" "$CATEGORY"
+          python views.py "$SEARCH_QUERY" "$ENDPOINT" "$LANGUAGE" "$SORT_BY" "$COUNTRY" "$CATEGORY"
 
 # name: run views.py
 # on:
