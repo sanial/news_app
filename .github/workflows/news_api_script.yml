@@ -14,6 +14,26 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      search_query:
+        description: 'Search Query'
+        required: true
+      endpoint:
+        description: 'Endpoint'
+        required: true
+      language:
+        description: 'Language'
+        required: false
+      sortBy:
+        description: 'Sort By'
+        required: false
+      country:
+        description: 'Country'
+        required: false
+      category:
+        description: 'Category'
+        required: false
 
 jobs:
   build:
@@ -34,13 +54,17 @@ jobs:
       - name: Set up environment variables
         run: |
           echo "API_KEY=${{secrets.API_KEY}}" >> $GITHUB_ENV
-          echo "DJANGO_SETTINGS_MODULE=news_app.settings" >> $GITHUB_ENV
       
       - name: Run Django migration
         run: python views.py migrate
 
       - name: Run Django development server
-        run: python views.py runserver
+        run: python views.py runserver &
+
+      - name: Make API Request
+        run: |
+          sleep 5  # Wait for the Django server to start
+          python make_api_request.py ${{ github.event.inputs.search_query }} ${{ github.event.inputs.endpoint }} ${{ github.event.inputs.language }} ${{ github.event.inputs.sortBy }} ${{ github.event.inputs.country }} ${{ github.event.inputs.category }}
 
 # name: run views.py
 # on:
