@@ -34,6 +34,7 @@ jobs:
       - name: Set up environment variables
         run: |
           echo "API_KEY=${{secrets.API_KEY}}" >> $GITHUB_ENV
+          echo "DJANGO_SETTINGS_MODULE=news_app.settings" >> $GITHUB_ENV
       
       - name: Run Django migration
         run: python views.py migrate
