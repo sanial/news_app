@@ -11,8 +11,9 @@
 # * * * * *
 name: News API Script
 on:
-  schedule:
-    - cron: '0 0 * * *' # Daily
+  push:
+    branches:
+      - main
 
 jobs:
   build:
