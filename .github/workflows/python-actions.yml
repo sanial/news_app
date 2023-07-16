@@ -1,5 +1,4 @@
 
-
 # FYI cron
 # ┌────────── minute (0 - 59)
 # │ ┌────────── hour (0 - 23)
@@ -11,7 +10,6 @@
 # │ │ │ │ │
 # * * * * *
 name: News API Script
-
 on:
   schedule:
     - cron: '0 0 * * *' # Daily
